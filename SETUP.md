@@ -4,14 +4,17 @@
 
 - This application maintains MySQL to maintain user data. Users can use the
   MariaDB as an alternate to MySQL.
-- If a preexisting MySQL database is not available, user can a setup MySQL
-  server using docker.
+- If a preexisting MySQL database is available, you skip the following steps
+  and use your database server.
+- User can a setup MySQL server using docker. Ensure that you have "Docker Desktop"
+  software installed.
 - An example docker-compose file that can be used by the user is provided in
-  the docker folder.
+  the docker folder. 
 - User can open a command prompt/shell in the docker folder and run the
   following command:
   
   docker-compose up -d
+
 - This launches the mysql and adminer services in detached mode. Refer the
   docker and docker-compose documentaton for details on docker usage.
 
@@ -21,9 +24,9 @@
   *db-name* values with the appropriate MySQL database values.
 - In case of using the *docker-compose.yml* file provided with the repository,
   the following values should be used:
-  - *user-name*: *MYSQL_USER*
-  - *user-password*: *MYSQL_PASSWORD*
-  - *db-name*: *MYSQL_DATABASE*
+  - *user-name*: *${MYSQL_USER}*
+  - *user-password*: *${MYSQL_PASSWORD}*
+  - *db-name*: *${MYSQL_DATABASE}*
 
 ## Setup Python environment
 
