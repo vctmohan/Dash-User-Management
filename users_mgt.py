@@ -8,11 +8,18 @@ db = SQLAlchemy()
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(15), unique=True)
-    email = db.Column(db.String(50), unique=True)
-    password = db.Column(db.String(80))
-    admin = db.Column(db.Boolean)
+    __tablename__ = 'user'
+    __table_args__ = {
+        'mysql_engine':'InnoDB',
+        'mysql_default_charset': 'utf8',
+        'mysql_collate': 'utf8_unicode_ci',
+        'mysql_auto_increment': '6',
+    }
+    id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+    admin = db.Column(db.Boolean, nullable=False, default=False)
 
 
 userTable = Table('user', User.metadata)
